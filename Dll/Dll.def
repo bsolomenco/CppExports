@@ -1,0 +1,5 @@
+LIBRARY
+EXPORTS
+cdeclFunc       ; export with __cdecl calling convention
+;stdcallFunc    ; this will overwrite the __stdcall from source code
+_stdcallFunc@4  ; export with __stdcall calling convention

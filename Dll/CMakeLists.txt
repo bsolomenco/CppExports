@@ -1,0 +1,14 @@
+cmake_minimum_required(VERSION 3.26)
+
+get_filename_component(PROJECT_NAME ${CMAKE_CURRENT_SOURCE_DIR} NAME)
+string(REPLACE " " "_" PROJECT_NAME ${PROJECT_NAME})
+project(${PROJECT_NAME} DESCRIPTION "")
+
+file(GLOB_RECURSE Src CONFIGURE_DEPENDS *.h *.cpp *.def)
+
+add_library(${PROJECT_NAME} SHARED ${Src})
+target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+
+install(TARGETS ${PROJECT_NAME}
+    RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}
+)
